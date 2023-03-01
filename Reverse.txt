@@ -1,0 +1,28 @@
+https://leetcode.com/problems/reverse-string/description/
+Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+
+class Solution(object):
+    def reverseString(self, s):
+        # using two pointers
+        # leng=len(s)
+        # i=0
+        # j=leng-1
+        # while i<=j:
+        #     s[i],s[j]=s[j],s[i]
+        #     i=i+1
+        #     j=j-1
+
+        # Stack method
+        a=[]
+        print(type(s))
+        while s:
+            a.append(s.pop())
+        for i in a:
+            s.append(i)
+
+        
+        """ 
+        :type s: List[str]
+        :rtype: None Do not return anything, modify s in-place instead.
+        """
