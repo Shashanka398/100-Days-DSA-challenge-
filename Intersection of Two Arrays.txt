@@ -1,0 +1,36 @@
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+
+Link:https://leetcode.com/problems/intersection-of-two-arrays/description/
+
+Solution:
+    class Solution(object):
+    def intersection(self, nums1, nums2):
+        nums1=set(nums1)
+        nums2=set(nums2)
+        ans=[]
+        calculate={}
+        for i in nums1:
+            calculate[i]=calculate.get(i,0)+1
+        for i in nums2:
+            calculate[i]=calculate.get(i,0)+1
+        for x,y in calculate.items():
+            if y>1:
+                ans.append(x)
+        return ans
+        # Solutin 2:
+        # nums1=set(nums1)
+        # nums2=set(nums2)
+        # ans=nums1.intersection(nums2)
+        # return ans
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
