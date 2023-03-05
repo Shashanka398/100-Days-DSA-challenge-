@@ -1,0 +1,13 @@
+Count pairs with given sum
+Link:https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1
+N = 4, K = 6
+arr[] = {1, 5, 7, 1}
+Output: 2
+Explanation: 
+arr[0] + arr[1] = 1 + 5 = 6 
+and arr[1] + arr[3] = 5 + 1 = 6.
+
+
+Solution:
+
+https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1

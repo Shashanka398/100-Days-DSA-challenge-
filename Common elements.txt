@@ -1,0 +1,71 @@
+Common elements
+Link:https://practice.geeksforgeeks.org/problems/common-elements1132/1
+
+
+Example 1:
+
+Input:
+n1 = 6; A = {1, 5, 10, 20, 40, 80}
+n2 = 5; B = {6, 7, 20, 80, 100}
+n3 = 8; C = {3, 4, 15, 20, 30, 70, 80, 120}
+Output: 20 80
+Explanation: 20 and 80 are the only
+common elements in A, B and C.
+
+
+
+Solution:
+
+#User function Template for python3
+
+class Solution:
+    def commonElements (self,A, B, C, n1, n2, n3):
+        # your code here
+        A=set(A)
+        B=set(B)
+        C=set(C)
+        dic={}
+        ans=[]
+        for i in A:
+            dic[i]=dic.get(i,0)+1
+        
+        for i in B:
+            dic[i]=dic.get(i,0)+1
+            
+        for i in C:
+            dic[i]=dic.get(i,0)+1
+            
+        for s,e in dic.items():
+            if e==3:
+                
+                ans.append(s)
+        ans.sort()      
+        return ans
+        
+        
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+
+t = int (input ())
+for tc in range (t):
+    n1, n2, n3 = list(map(int,input().split()))
+    A = list(map(int,input().split()))
+    B = list(map(int,input().split()))
+    C = list(map(int,input().split()))
+    
+    ob = Solution()
+    
+    res = ob.commonElements (A, B, C, n1, n2, n3)
+    
+    if len (res) == 0:
+        print (-1)
+    else:
+        for i in range (len (res)):
+            print (res[i], end=" ")
+        print ()
+
+# } Driver Code Ends
