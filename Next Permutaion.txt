@@ -32,3 +32,4 @@ Solution:
                     break
             nums[g],nums[pivot]=nums[pivot],nums[g]
             nums[pivot+1:] = nums[pivot+1:][::-1]
+          
