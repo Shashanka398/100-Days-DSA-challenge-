@@ -10,4 +10,17 @@ and arr[1] + arr[3] = 5 + 1 = 6.
 
 Solution:
 
-https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1
+
+class Solution:
+    def getPairsCount(self, arr, n, k):
+        # code here
+        
+        ans=0
+        dic={}
+        
+        for i in arr:
+            rem=k-i
+            if rem in dic:
+                ans+=dic.get(rem)
+            dic[i]=dic.get(i,0)+1
+        return ans
