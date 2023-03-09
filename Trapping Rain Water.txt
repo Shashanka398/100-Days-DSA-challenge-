@@ -1,0 +1,80 @@
+Trapping Rain Water
+
+Link:https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
+Given an array arr[] of N non-negative integers representing the height of blocks. If width of each block is 1, compute how much water can be trapped between the blocks during the rainy season. 
+ 
+
+Example 1:
+
+Input:
+N = 6
+arr[] = {3,0,0,2,0,4}
+Output:
+10
+
+Solution:
+
+class Solution:
+    def trappingWater(self, li,n):
+        #Code here
+        
+        # ans=0
+        # lefans=0
+        # right=0
+        
+        # for i in range(n):
+        #     leftans=max(max(li[:i+1]),li[i])
+        #     right=max(max(li[i:]),li[i])
+        #     ans+=min(leftans,right)-li[i]
+        # return ans
+        left=n*[0]
+        right=n*[0]
+        left_so_far=li[0]
+        for i in range(n):
+            if left_so_far<li[i]:
+                left_so_far=li[i]
+                left[i]=left_so_far
+            else:
+                left[i]=left_so_far
+        right_so_far=li[-1]
+        
+        for i in range(n-1,-1,-1):
+            if right_so_far<li[i]:
+                right_so_far=li[i]
+                right[i]=right_so_far
+            else:
+                right[i]=right_so_far
+        ans=0        
+        for i in range(n):
+            ans+=min(right[i],left[i])-li[i]
+        return ans
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+import math
+
+
+
+def main():
+        T=int(input())
+        while(T>0):
+            
+            n=int(input())
+            
+            arr=[int(x) for x in input().strip().split()]
+            obj = Solution()
+            print(obj.trappingWater(arr,n))
+            
+            
+            T-=1
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+# } Driver Code Ends
