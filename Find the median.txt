@@ -1,0 +1,23 @@
+Find the median
+
+
+Link:https://practice.geeksforgeeks.org/problems/find-the-median0527/1
+
+Input: N = 5
+arr[] = 90 100 78 89 67
+Output: 89
+Explanation: After sorting the array 
+middle element is the median 
+
+Solution:
+class Solution:
+	def find_median(self, v):
+		# Code here
+		v.sort()
+		l=len(v)
+		if l%2==0:
+		    return ((v[(l-1)//2]+v[l//2])//2)
+		else:
+
+		    return v[(l-1)//2]
+

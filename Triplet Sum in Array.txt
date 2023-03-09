@@ -1,0 +1,67 @@
+Triplet Sum in Array
+Link:https://practice.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1
+
+Given an array arr of size n and an integer X. Find if there's a triplet in the array which sums up to the given integer X.
+
+
+Example 1:
+
+Input:
+n = 6, X = 13
+arr[] = [1 4 45 6 10 8]
+Output:
+1
+Explanation:
+The triplet {1, 4, 8} in 
+the array sums up to 13.
+Soltion:
+#User function Template for python3
+class Solution:
+     
+    #Function to find if there exists a triplet in the 
+    #array A[] which sums up to X.
+    def find3Numbers(self,A, n, X):
+        ans=0
+        for i in range(0, n-1):
+            s = {}
+            curr_sum = X - A[i]
+            for j in range(i + 1,n):
+                if (curr_sum - A[j]) in s:
+                    # print("j")
+                    ans+=s.get(curr_sum-A[j])
+                s[A[j]]=s.get(A[j],0)+1
+      
+        return ans
+                
+                
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+import atexit
+import io
+import sys
+
+_INPUT_LINES = sys.stdin.read().splitlines()
+input = iter(_INPUT_LINES).__next__
+_OUTPUT_BUFFER = io.StringIO()
+sys.stdout = _OUTPUT_BUFFER
+
+@atexit.register
+
+def write():
+    sys.__stdout__.write(_OUTPUT_BUFFER.getvalue())
+
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        n,X=map(int,input().strip().split())
+        A=list(map(int,input().strip().split()))
+        ob=Solution()
+        if(ob.find3Numbers(A,n,X)):
+            print(1)
+        else:
+            print(0)
+# } Driver Code Ends
