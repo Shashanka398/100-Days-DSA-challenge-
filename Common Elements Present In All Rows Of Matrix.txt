@@ -1,0 +1,25 @@
+Common Elements Present In All Rows Of Matrix
+
+Link:https://www.codingninjas.com/codestudio/problems/common-elements-present-in-all-rows-of-a-matrix_1118111?leftPanelTab=0
+
+
+
+Solution:
+
+def findCommonElements(mat):
+    #    Write your code here.
+
+    ans=[]
+    dic={}
+    for i in range(len(mat)):
+        lis=[None]*len(mat[i])
+        for j in range(len(mat[i])):
+            lis.append(mat[i][j])
+        lis=set(lis)
+        for i in lis:
+            dic[i]=dic.get(i,0)+1
+    ans=[]
+    for x,y in dic.items():
+        if x!=None and y==len(mat):
+            ans.append(x)
+
