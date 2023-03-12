@@ -1,0 +1,37 @@
+Check if strings are rotations of each other or not
+
+Link:https://practice.geeksforgeeks.org/problems/check-if-strings-are-rotations-of-each-other-or-not-1587115620/1
+
+Given two strings s1 and s2. The task is to check if s2 is a rotated version of the string s1. The characters in the strings are in lowercase.
+
+ 
+
+Example 1:
+
+Input:
+geeksforgeeks
+forgeeksgeeks
+Output: 
+1
+Explanation: s1 is geeksforgeeks, s2 is
+forgeeksgeeks. Clearly, s2 is a rotated
+version of s1 as s2 can be obtained by
+left-rotating s1 by 5 units.
+
+
+Solution:
+class Solution:
+    
+    #Function to check if two strings are rotations of each other or not.
+    def areRotations(self,s1,s2):
+        #code here
+        if len(s1)!=len(s2):
+            return 0
+        s3=s1+s1
+        i=0
+        if s2 in s3:
+            return 1
+        else:
+            return 0
+            
+        
