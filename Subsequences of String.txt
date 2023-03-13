@@ -1,0 +1,30 @@
+Subsequences of 
+
+Link:https://www.codingninjas.com/codestudio/problems/subsequences-of-string_985087?leftPanelTab=0
+
+Solution:
+from os import *
+from sys import *
+from collections import *
+from math import *
+def solve(str,index,out,ans):
+
+    if index>=len(str):
+        if len(out)>0:
+            ans.append(out)
+        return
+    solve(str,index+1,out,ans)
+    e=str[index]
+    out+=e
+    solve(str,index+1,out,ans)
+
+        
+def subsequences(str):
+
+    # Write your code here
+    ans=[]
+    out=""
+    index=0
+    solve(str,index,out,ans)
+    return ans
+    pass

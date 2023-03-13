@@ -1,0 +1,40 @@
+Permutations of a given string
+
+Given a string S. The task is to print all unique permutations of the given string in lexicographically sorted order.
+
+ 
+
+Example 1:
+
+Input: ABC
+Output:
+ABC ACB BAC BCA CAB CBA
+Explanation:
+Given string ABC has permutations in 6 
+forms as ABC, ACB, BAC, BCA, CAB and CBA .
+Link:https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string2041/1
+
+
+Solution:
+
+def solve(str,index,ans):
+    if index==len(str)-1:
+        ans.append("".join(str))
+        return
+    for i in range(index,len(str)):
+        S=str
+        S=list(S)
+        S[index],S[i]=S[i],S[index]
+        solve(S,index+1,ans)
+        S[index],S[i]=S[i],S[index]
+        
+class Solution:
+    def find_permutation(self, str):
+        ans=[]
+        index=0
+        str=list(str)
+        solve(str,index,ans)
+        ans=set(ans)
+        ans=list(ans)
+        ans.sort()
+        return ans
