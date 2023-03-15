@@ -1,0 +1,34 @@
+Remove Consecutive Characters
+
+Link:https://practice.geeksforgeeks.org/problems/consecutive-elements2306/1
+
+Given a string S. For each index i(1<=i<=N-1), erase it if s[i] is equal to s[i-1] in the string.
+
+Example 1:
+
+Input:
+S = aabb
+Output:  ab 
+Explanation: 'a' at 2nd position is
+appearing 2nd time consecutively.
+Similiar explanation for b at
+4th position.
+
+Solution:
+class Solution:
+    def removeConsecutiveCharacter(self, S):
+        # code here
+        s=list(S)
+        n=len(s)
+        ans=""
+        ans=s[0]
+
+        for i in range(1,n):
+            if s[i]==s[i-1]:
+                continue
+            else:
+                ans+=s[i]
+     
+        return ans
+                
+            

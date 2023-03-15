@@ -1,0 +1,27 @@
+Roman to Integer
+Link:https://leetcode.com/problems/roman-to-integer/description/
+
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+
+Solution:
+class Solution:
+    def romanToInt(self, S: str) -> int:
+        dic={"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+        ans=dic.get(S[len(S)-1])
+        for i in range(len(S)-2,-1,-1):
+            if dic.get(S[i])<dic.get(S[i+1]):
+                ans-=dic.get(S[i])
+            else:
+                ans+=dic.get(S[i])
+        k=""
+        k=ans
+        return k

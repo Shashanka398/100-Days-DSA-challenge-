@@ -1,0 +1,25 @@
+Second most repeated string in a sequence
+
+Link:https://practice.geeksforgeeks.org/problems/second-most-repeated-string-in-a-sequence0534/1
+
+solution:
+class Solution:
+    def secFrequent(self, arr, n):
+        # code here
+        dic={}
+        for i in arr:
+            dic[i]=dic.get(i,0)+1
+        if len(dic)==1:
+            return ""
+        li=[]
+        for x,y in dic.items():
+            li.append(y)
+        li.sort()
+        n1=li[len(li)-2]
+        ans=""
+        for x,y in dic.items():
+            if y==n1:
+                ans=x
+                
+        # print(ans)
+        return ans
