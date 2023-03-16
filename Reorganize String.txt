@@ -1,0 +1,47 @@
+Reorganize String
+
+Link:https://leetcode.com/problems/reorganize-string/description/
+
+
+Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
+
+Return any possible rearrangement of s or return "" if not possible.
+
+ 
+
+Example 1:
+
+Input: s = "aab"
+Output: "aba"
+Example 2:
+
+Input: s = "aaab"
+Output: ""
+
+Solution:
+
+//Use heap sort
+
+from collections import Counter
+import heapq
+class Solution:
+    def reorganizeString(self, s: str) -> str:
+        c=Counter(s)
+        maxheap=[[-ci,ch] for ch,ci in c.items()]
+        heapq.heapify(maxheap)
+        pre=None
+        res=""
+        while maxheap or pre:
+            if pre and not maxheap:
+                return ""
+            ci,ch=heapq.heappop(maxheap)
+            res+=ch
+            ci+=1
+            if pre!=None:
+                heapq.heappush(maxheap,pre)
+                pre=None
+            if ci!=0:
+                pre=[ci,ch]
+
+        return res
+ 
