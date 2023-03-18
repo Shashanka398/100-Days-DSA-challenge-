@@ -1,0 +1,26 @@
+Minimum Add to Make Parentheses Valid
+
+Link:https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
+Example 1:
+
+Input: s = "())"
+Output: 1
+Example 2:
+
+Input: s = "((("
+Output: 3
+
+Solution:
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        li=[]
+        for i in s:
+            if i =='(':
+                li.append(i)
+            elif i==')' and len(li)>0 and li[len(li)-1]=='(':
+                li.pop()
+            else:
+                li.append(i)
+        for i in li:
+            print(i)
+        return len(li)
