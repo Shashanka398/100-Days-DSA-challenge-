@@ -1,0 +1,22 @@
+First and last occurrences of x
+
+Link:https://practice.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1\
+
+
+Solution:
+def find(arr,n,x):
+    # code here
+    srt=-1
+    end=-1
+    for i in range(n):
+        if arr[i]==x:
+            srt=i
+            break
+    for i in range(n-1,-1,-1):
+        if arr[i]==x:
+            end=i
+            break
+    k=[]
+    k.append(srt)
+    k.append(end)
+    return k

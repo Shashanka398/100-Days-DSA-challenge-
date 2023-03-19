@@ -1,0 +1,43 @@
+Find Missing And Repeating
+
+Link:https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+
+Given an unsorted array Arr of size N of positive integers. One number 'A' from set {1, 2,....,N} is missing and one number 'B' occurs twice in array. Find these two numbers.
+
+Example 1:
+
+Input:
+N = 2
+Arr[] = {2, 2}
+Output: 2 1
+Explanation: Repeating number is 2 and 
+smallest positive missing number is 1.
+Example 2:
+
+Input:
+N = 3
+Arr[] = {1, 3, 3}
+Output: 3 2
+Explanation: Repeating number is 3 and 
+smallest positive missing number is 2.
+Solution:
+class Solution:
+    def findTwoElement( self,arr, n): 
+        # code here
+        ans=set(arr)
+        su=0
+        for i in ans:
+            su+=i
+        wholesum=(n*(n+1))//2
+        final=wholesum-su
+        dic={}
+        repeated=0
+        for i in arr:
+            dic[i]=dic.get(i,0)+1
+        for x,y in dic.items():
+            if y>1:
+                repeated=x
+        li=[]
+        li.append(repeated)
+        li.append(final)
+        return li

@@ -1,0 +1,16 @@
+Count Squares
+
+
+Link:https://practice.geeksforgeeks.org/problems/count-squares3649/1
+
+
+Solution:
+
+class Solution:
+
+    def countSquares(self, N):
+        n = N ** 0.5
+        if n > int(n):
+            return int(n)
+
+        return int(N ** 0.5) -1
