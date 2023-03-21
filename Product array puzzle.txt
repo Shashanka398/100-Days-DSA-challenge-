@@ -1,0 +1,34 @@
+Product array puzzle
+Link:https://practice.geeksforgeeks.org/problems/product-array-puzzle4525/1
+
+
+Solution:
+
+class Solution:
+    def productExceptSelf(self, nums, n):
+        #code here
+        p=1
+        k=0
+        for i in nums:
+            if i==0:
+                k+=1
+                p=0
+            p*=i
+        ans=[0]*n
+        if k==0:
+            ans.clear()
+            for i in range(len(nums)):
+                ans.append(p//nums[i])
+        elif k==1:
+            
+            q=1
+            pos=0
+            for i in range(len(nums)):
+                if nums[i]==0:
+                    pos=i
+                    continue
+                q*=nums[i]
+            ans[pos]=q
+            
+        return ans
+            
