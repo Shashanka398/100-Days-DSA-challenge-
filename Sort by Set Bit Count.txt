@@ -1,0 +1,30 @@
+Sort by Set Bit Count
+Link:https://practice.geeksforgeeks.org/problems/sort-by-set-bit-count1153/1
+
+Solution:
+from collections import defaultdict
+def countbit(n):
+        c=0
+        while n!=0:
+            if n%2!=0:
+                c+=1
+            n=n//2
+        return c
+class Solution:
+   
+        
+    def sortBySetBitCount(self, arr, n):
+        # Your code goes here
+        dic=defaultdict(list)
+        ans=[]
+        for i in arr:
+            dic[countbit(i)].append(i)
+        for x,y in dic.items():
+            k=y
+            k.reverse()
+            for i in k:
+                ans.append(i)
+        arr.clear()
+        ans.reverse()
+        for i in ans:
+            arr.append(i)
