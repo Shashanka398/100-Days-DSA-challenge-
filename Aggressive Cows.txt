@@ -1,0 +1,30 @@
+Aggressive Cows
+
+Link:https://www.codingninjas.com/codestudio/problems/aggressive-cows_1082559?leftPanelTab=0
+Solution:
+def ispos(stalls,k,mid):
+    c=1
+    fi=stalls[0]
+    for i in stalls:
+        if i-fi>=mid:
+            c+=1
+            if c==k:
+                return True
+            fi=i
+    return False
+def aggressiveCows(stalls, k):
+    # Write your code here.
+    stalls.sort()
+    ma=stalls[len(stalls)-1]
+    s=0
+    mid=s+(ma-s)//2
+    while s<=ma:
+        if ispos(stalls,k,mid):
+            ans=mid
+            s=mid+1
+        else:
+            ma=mid-1
+        mid=s+(ma-s)//2
+    return ans
+        
+    pass

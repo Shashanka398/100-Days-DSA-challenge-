@@ -1,0 +1,38 @@
+Painter's Partition Problem
+
+Link:https://www.codingninjas.com/codestudio/problems/painter-s-partition-problem_1089557?leftPanelTab=0
+
+Solution:
+def ispos(mid,M,A):
+    s=0
+    c=1
+    for i in A:
+        if (s+i)<=mid:
+            s+=i
+        else:
+            c+=1
+            if c>M or i>mid:
+                return False
+            s=i
+    return True
+def findLargestMinDistance(boards:list, k:int):
+    # Write your code here
+    # Return an integer
+    s1=0
+    for i in boards:
+        s1+=i
+    
+    srt=0
+    e=s1
+    mid=srt+(e-srt)//2
+    ans=-1
+    while srt<=e:
+        if ispos(mid,k,boards):
+            ans=mid
+            e=mid-1
+        else:
+            srt=mid+1
+        mid=srt+(e-srt)//2
+    return ans
+    
+    pass

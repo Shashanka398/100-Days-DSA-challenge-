@@ -1,0 +1,47 @@
+Allocate Books
+Link:https://www.codingninjas.com/codestudio/problems/allocate-books_1090540?leftPanelTab=0
+
+Solution:
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def ispos(mid,M,A):
+    s=0
+    c=1
+    for i in A:
+        if (s+i)<=mid:
+            s+=i
+        else:
+            c+=1
+            if c>M or i>mid:
+                return False
+            s=i
+    return True
+        
+def allocateBooks(A,N,M):
+     s1=0
+     for i in A:
+         s1+=i
+     s=0
+     e=s1
+     mid=s+(e-s)//2
+     ans=-1
+     while s<=e:
+         if ispos(mid,M,A):
+             ans=mid
+             e=mid-1
+         else:
+             s=mid+1
+         mid=s+(e-s)//2
+     return ans
+
+
+       
+
+
+    
+
+                
