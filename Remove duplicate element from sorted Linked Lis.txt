@@ -1,0 +1,15 @@
+Remove duplicate element from sorted Linked List
+Link:https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
+
+Solution:
+def removeDuplicates(head):
+    s=head
+    while s.next:
+        p=s.next
+        if s.data==p.data:
+            s.next=p.next
+        else:
+            s=s.next
+    return head
+        
+    
