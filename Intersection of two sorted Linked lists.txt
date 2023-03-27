@@ -1,0 +1,104 @@
+Intersection of two sorted Linked lists
+
+Link:https://practice.geeksforgeeks.org/problems/intersection-of-two-sorted-linked-lists/1
+
+Solution
+#User function Template for python3
+
+
+from collections import OrderedDict
+def findIntersection(head1,head2):
+    
+    # li=OrderedDict()
+    # t1=head1
+    # t2=head2
+    # while t1!=None:
+    #     li[t1.data]=li.get(t1.data,0)+1
+    #     t1=t1.next
+    # for x,y in li.items():
+    #     if y>1:
+    #         li[x]-=1
+    # while t2!=None:
+    #     li[t2.data]=li.get(t2.data,0)+1
+    #     t2=t2.next
+    # ans=[]
+    # for x,y in li.items():
+    #     if y>1:
+    #         ans.append(x)
+    # head=Node(ans[0])
+    # t=head
+    # for i in range(1,len(ans)):
+    #     newda=Node(ans[i])
+    #     t.next=newda
+    #     t=t.next
+            
+    # return head
+    k=Node(0)
+    ans=None
+    pre=None
+    while head1 and head2:
+        if head1.data == head2.data:
+            t=Node(head1.data)
+            if ans==None:
+                ans=t
+                pre=t
+            else:
+                pre.next=t
+                pre=pre.next
+            head1=head1.next
+            head2=head2.next
+        elif head1.data<head2.data:
+            head1=head1.next
+        else:
+            head2=head2.next
+    return ans
+    #return head
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class linkedList:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    
+    def insert(self,data):
+        if self.head is None:
+            self.head = Node(data)
+            self.tail = self.head
+        else:
+            self.tail.next = Node(data)
+            self.tail = self.tail.next
+
+def printList(head):
+    while head:
+        print(head.data,end=' ')
+        head=head.next
+        
+if __name__ == '__main__':
+    t=int(input())
+    for _ in range(t):
+        
+        n1,n2 = [int(x) for x in input().split()]
+        arr1 = [int(x) for x in input().split()]
+        ll1 = linkedList()
+        for i in arr1:
+            ll1.insert(i)
+        
+        arr2 = [int(x) for x in input().split()]
+        ll2 = linkedList()
+        for i in arr2:
+            ll2.insert(i)
+        
+        result = findIntersection(ll1.head,ll2.head)
+        printList(result)
+        print()
+
+# } Driver Code Ends
