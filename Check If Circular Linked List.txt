@@ -1,0 +1,17 @@
+Check If Circular Linked List
+
+Link:https://practice.geeksforgeeks.org/problems/circular-linked-list/1
+
+Solution:
+def isCircular(head):
+    # Code here
+    
+    
+    t=head
+    while t.next!=head:
+        t=t.next
+        if t==None:
+            break
+    if t==None:
+        return 0
+    return 1

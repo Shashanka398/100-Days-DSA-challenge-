@@ -1,0 +1,20 @@
+Split a Circular Linked List into two halves
+
+Link:https://practice.geeksforgeeks.org/problems/split-a-circular-linked-list-into-two-halves/1
+
+Solution:
+class Solution:
+  class StockSpanner:
+
+    def __init__(self):
+        self.stack=[]
+        
+
+    def next(self, price: int) -> int:
+        span=1
+        while self.stack and self.stack[-1][0]<=price:
+            span=span+self.stack[-1][1]
+            self.stack.pop()
+        self.stack.append([price,span])
+        return span
+        
