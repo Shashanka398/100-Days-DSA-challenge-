@@ -1,0 +1,44 @@
+Deletion In Circular Linked List
+
+Link:https://www.codingninjas.com/codestudio/problems/deletion-in-circular-linked-list_630409?leftPanelTab=0
+
+Solution:
+'''
+Following is the Node class used to represent the Node of a Circular Linked List
+
+class Node :
+
+    def __init__(self, data) :
+        self.data = data
+        self.next = None
+
+'''
+
+def deleteNode(head, key) :
+    if head==None:
+        return head
+    
+    t=head
+    if head.data==key and head.next==head:
+        return None
+    l=head
+    p=None
+    if head.data==key:
+        while l.next!=head:
+            l=l.next
+
+        l.next=head.next
+        head=l.next
+    while l.next!=head and l.next.data!=key:
+        l=l.next
+    if l.next.data==key:
+        d=l.next
+        l.next=d.next 
+    
+
+
+
+    
+    return head
+
+

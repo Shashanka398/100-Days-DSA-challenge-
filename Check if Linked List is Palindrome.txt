@@ -1,0 +1,48 @@
+Check if Linked List is Palindrome
+
+Link:https://practice.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1
+
+Solution:
+    def isPalindrome(self, head):
+        # li=[]
+        # t=head
+        # while t:
+        #     li.append(t.data)
+        #     t=t.next
+        # i,j=0,len(li)-1
+        
+        # while i<=j:
+        #     if li[i]==li[j]:
+        #         i+=1
+        #         j-=1
+        #     else:
+        #         return 0
+        # return 1
+        
+        s=head
+        f=head
+        while f.next and f.next.next:
+            s=s.next
+            f=f.next.next
+            
+        pre=None
+        ne=None
+        cur=s.next
+        s.next=None
+        while cur:
+            ne=cur.next
+            cur.next=pre
+            pre=cur
+            cur=ne
+        s.next=pre
+        h=head
+        while pre:
+            if pre.data==h.data:
+                pre=pre.next
+                h=h.next
+            else:
+                break
+        if pre:
+            return 0
+        return 1   
+        
