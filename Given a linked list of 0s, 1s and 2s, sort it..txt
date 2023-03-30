@@ -1,0 +1,43 @@
+Given a linked list of 0s, 1s and 2s, sort it
+
+Link:https://practice.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1
+
+Solution:
+class Solution:
+    #Function to sort a linked list of 0s, 1s and 2s.
+    def segregate(self, head):
+        #code here
+        li=[]
+        t=head
+        while t!=None:
+            li.append(t.data)
+            t=t.next
+            
+        c0,c1,c2=0,0,0
+        
+        for i in li:
+            if i==0:
+                c0+=1
+            if i==1:
+                c1+=1
+            if i==2:
+                c2+=1
+        n=len(li)        
+        li.clear()
+        for i in range(c0):
+            li.append(0)
+        for i in range(c1):
+            li.append(1)
+        for i in range(c2):
+            li.append(2)
+        ans=None
+        k=None
+        for i in li:
+            newnode=Node(i)
+            if ans==None:
+                ans=newnode
+                k=newnode
+            else:
+                k.next=newnode
+                k=k.next
+        return ans

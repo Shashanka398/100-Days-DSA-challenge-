@@ -1,0 +1,23 @@
+Find pair with a given sum in a doubly linked list
+
+Link:https://www.codingninjas.com/codestudio/problems/find-pair-with-a-given-sum-in-a-doubly-linked-list_1164172?leftPanelTab=0
+
+Solution:
+def findPair(head, k):
+	
+	first=head
+	last=head
+	while last.next!=None:
+		last=last.next
+	
+	while first!=last and last.next != first:
+		if (first.data+last.data)==k:
+			return True
+		else:
+			if (first.data+last.data)<k:
+				first=first.next
+			else:
+				last=last.prev
+	
+	return False
+    

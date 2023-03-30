@@ -1,0 +1,32 @@
+Rotate Doubly linked list by N nodes
+
+Link:https://www.codingninjas.com/codestudio/problems/rotate-dll_1115782?leftPanelTab=0
+
+Solution:
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+# Following is the class structure of the DLLNode class
+# Do not delete or update the class structure
+
+class DLLNode:
+
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+
+def rotateDLL(head, k):
+    # Write your code here
+    to_rotated=head
+    while k>1: 
+        to_rotated=to_rotated.next
+        k-=1
+       
+    p=to_rotated.next
+    to_rotated.next=None
+    p.prev=None
+    ans=None
