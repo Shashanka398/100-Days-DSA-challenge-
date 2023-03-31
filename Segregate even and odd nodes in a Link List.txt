@@ -1,0 +1,22 @@
+Segregate even and odd nodes in a Link Lis
+Link:https://practice.geeksforgeeks.org/problems/segregate-even-and-odd-nodes-in-a-linked-list5035/1
+
+Solution:
+class Solution:
+    def divide(self, N, head):
+        li=[]
+        e=head
+        o=head
+        while e:
+            if e.data%2==0:
+                li.append(e.data)
+            e=e.next
+        while o:
+            if o.data%2!=0:
+                li.append(o.data)
+            o=o.next
+        ans=None
+        t=None
+        for i in li:
+            print(i,end=" ")
+        return ans
