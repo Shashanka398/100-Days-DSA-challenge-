@@ -1,0 +1,28 @@
+Count triplets in a sorted doubly linked list whose sum is equal to a given value x
+
+Link:https://www.codingninjas.com/codestudio/problems/count-triplets-in-a-sorted-doubly-linked-list-whose-sum-is-equal-to-a-given-value-x_985286?leftPanelTab=0
+
+Solution:
+def countTriplets(head, X):
+    # Write your code here
+    A=[]
+    t=head
+    while t:
+        A.append(t.data)
+        t=t.next
+    ans=0
+    A.sort()
+    n=len(A)
+    for i in range(0, n-1):
+    
+         s = {}
+         curr_sum = X - A[i]
+         for j in range(i + 1,n):
+
+             if (curr_sum - A[j]) in s:
+                 ans+=s.get(curr_sum-A[j])
+             s[A[j]]=s.get(A[j],0)+1
+      
+    return ans
+    
+   
