@@ -1,0 +1,41 @@
+Quick Sort on Linked List
+Link:https://practice.geeksforgeeks.org/problems/quick-sort-on-linked-list/1
+
+Solution:
+    #return head after sorting
+    if not head or not head.next:
+        return head
+    p = head
+
+    shead = small = Node(-1)
+    lhead = large = Node(-1)
+    curr = head.next
+    while curr:
+        if curr == p:
+            curr = curr.next
+        elif curr.data < p.data:
+            small.next = curr
+            curr = curr.next
+            small = small.next
+        else:
+            large.next = curr
+            curr = curr.next
+            large = large.next
+    
+    small.next = None
+    large.next = None
+    
+    small = quickSort(shead.next)
+    p.next = None
+    large = quickSort(lhead.next)
+    
+    temp = small
+    while temp and temp.next:
+        temp = temp.next
+    if temp:
+        temp.next = p
+    else:
+        small = p
+    p.next = large
+    return small
+    
