@@ -1,0 +1,16 @@
+Nth node from end of linked list
+Link:https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1
+
+Solution:
+def getNthFromLast(head,n):
+    #code here
+    li=[]
+    t=head
+    while t:
+        li.append(t.data)
+        t=t.next
+    li.reverse()
+    if n>len(li):
+        return -1
+    else:
+        return li[n-1]

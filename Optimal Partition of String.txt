@@ -1,0 +1,16 @@
+ Optimal Partition of String
+
+Link:https://leetcode.com/problems/optimal-partition-of-string/description/
+
+Solution:class Solution(object):
+    def partitionString(self, s):
+        idx = 0
+        ans = 0
+        mp = {} 
+        while idx < len(s):
+            if s[idx] in mp: 
+                ans += 1
+                mp.clear() 
+            mp[s[idx]] = True 
+            idx += 1 
+        return ans + 1
