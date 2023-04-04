@@ -1,4 +1,4 @@
-Nth node from end of linked list
+Nth node from end of linked list.
 Link:https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1
 
 Solution:
