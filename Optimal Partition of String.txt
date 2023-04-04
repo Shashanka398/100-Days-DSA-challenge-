@@ -1,4 +1,4 @@
- Optimal Partition of String
+ Optimal Partition of String.
 
 Link:https://leetcode.com/problems/optimal-partition-of-string/description/
 
