@@ -1,0 +1,19 @@
+Reverse Level Order Traversal
+Link:https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1
+
+Link:
+def reverseLevelOrder(root):
+    # code here
+     q=[]
+     ans=[]
+     q.append(root)
+     while len(q)!=0:
+            curr=q.pop(0)
+            ans.append(curr.data)
+            if curr.right!=None:
+                q.append(curr.right)
+            if curr.left!=None:
+                q.append(curr.left)
+           
+     ans.reverse()
+     return ans

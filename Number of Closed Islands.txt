@@ -1,0 +1,27 @@
+ Number of Closed Islands
+Link:https://leetcode.com/problems/number-of-closed-islands/description/
+
+Solution:
+class Solution:
+    def closedIsland(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        count = 0
+        
+        def dfs(i, j):
+            if i < 0 or j < 0 or i >= rows or j >= cols:
+                return False
+            if grid[i][j] == 1:
+                return True
+            grid[i][j] = 1         
+            l = dfs(i, j-1)
+            r = dfs(i, j+1)
+            u= dfs(i-1, j)
+            d = dfs(i+1, j)
+            return l and r and u and d
+        
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 0 and dfs(i, j):
+                    count += 1
+        
+        return count
