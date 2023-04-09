@@ -1,0 +1,16 @@
+Binary Tree Inorder Traversal
+
+Link:https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+Solution:
+def inorder(root,ans):
+    if root==None:
+        return 
+    preorder(root.left,ans)
+    ans.append(root.val)
+    preorder(root.right,ans)
+    
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans=[]
+        inorder(root,ans)
+        return ans

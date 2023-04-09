@@ -1,0 +1,19 @@
+Left View of Binary Tree
+Link:https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1
+
+Solution:
+
+def solve(root,level,ans):
+    if root==None:
+        return 
+    if level==len(ans):
+        ans.append(root.data)
+    solve(root.left,level+1,ans)
+    solve(root.right,level+1,ans)
+
+    
+def LeftView(root):
+    level=0
+    ans=[]
+    solve(root,level,ans)
+    return ans

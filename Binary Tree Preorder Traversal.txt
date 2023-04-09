@@ -1,0 +1,15 @@
+Binary Tree Preorder Traversal
+Link:https://leetcode.com/problems/binary-tree-preorder-traversal/description/
+Solution:#         self.right = right
+def preorder(root,ans):
+    if root==None:
+        return
+    ans.append(root.val) 
+    preorder(root.left,ans)
+    
+    preorder(root.right,ans)
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans=[]
+        preorder(root,ans)
+        return ans
