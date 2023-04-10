@@ -1,0 +1,28 @@
+Top View of Binary Tree
+Link:https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1
+Solution:
+class Solution:
+
+    def topView(self,root):
+        
+
+        if root is None:
+            return []
+        d = {}
+        q=[]
+        levels=[]
+        q.append(root)
+        levels.append(0)
+        while q:
+            curr=q.pop(0)
+            level=levels.pop(0)
+            if level not in d:
+                d[level] = curr.data
+
+            if curr.left!=None:
+                q.append(curr.left)
+                levels.append(level-1)
+            if curr.right!=None:
+                q.append(curr.right)
+                levels.append(level+1)
+        return  [d[i] for i in sorted(d.keys())] 
