@@ -1,0 +1,23 @@
+Check for Balanced Tree
+Link:https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
+
+Solution:
+class Solution:
+    
+    def solve(self,root):
+        if root==None:
+            return 0
+        left=self.solve(root.left)
+        right=self.solve(root.right)
+        
+        if abs(left-right)>1:return -1
+        if left==-1 or right==-1:return -1
+        return 1+max(left,right)
+        
+        
+    def isBalanced(self,root):
+    
+        if self.solve(root)==-1:
+            return False
+        else:
+            return True

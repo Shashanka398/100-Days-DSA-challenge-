@@ -1,0 +1,24 @@
+Binary Tree Zigzag Level Order Traversal
+Link:https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/
+Solution:
+class Solution(object):
+    def zigzagLevelOrder(self, root):
+        q = []
+        ans=[]
+        if root:
+            q.append(root)
+        flag=0
+        while q:
+            row=[]
+            for i in range(len(q)):
+                cur=q.pop(0)
+                row.append(cur.val)
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
+            if flag==1:
+                row=row[::-1]
+            flag=1-flag
+            ans.append(row)
+        return ans
