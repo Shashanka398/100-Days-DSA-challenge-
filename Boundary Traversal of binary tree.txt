@@ -1,0 +1,44 @@
+Boundary Traversal of binary tree
+
+Link:https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1
+
+Solution:
+class Solution:
+
+    def rights(self, root, ans):
+        if root == None:
+            return
+        if root.right != None:
+            self.rights(root.right, ans)
+            ans.append(root.data)
+        elif root.left != None:
+            self.rights(root.left, ans)
+            ans.append(root.data)
+    def leaf(self, root, ans):
+        if root == None:
+            return
+        self.leaf(root.left, ans)
+        if root.left == None and root.right == None:
+            ans.append(root.data)
+        self.leaf(root.right, ans)
+    def lefts(self, root, ans):
+        if root == None:
+            return
+        if root.left != None:
+            ans.append(root.data)
+            self.lefts(root.left, ans)
+        elif root.right != None:
+            ans.append(root.data)
+            self.lefts(root.right, ans)
+    def printBoundaryView(self, root):
+        ans = []
+        if root == None:
+            return []
+        if root.left == None and root.right == None:
+            return [root.data]
+        ans.append(root.data)
+        self.lefts(root.left, ans)
+        self.leaf(root, ans)
+        self.rights(root.right, ans)
+        return ans
+        
