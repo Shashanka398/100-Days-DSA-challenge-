@@ -1,0 +1,17 @@
+Transform to Sum Tree
+
+Link:https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1
+
+Solution:
+'''
+class Solution:
+    def toSumTree(self, root) :
+        def transform(root):
+            if not root: return 0
+            l = transform(root.left)
+            r = transform(root.right)
+            temp = root.data
+            root.data = l + r
+            return temp+l+r
+        ans = transform(root)
+        return root
