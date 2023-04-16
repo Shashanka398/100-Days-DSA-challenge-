@@ -1,0 +1,23 @@
+Lowest Common Ancestor of a Binary Tree
+
+Link:https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+
+Solution:
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        if root==None:
+            return None
+        if root.val==p.val or root.val==q.val:
+            return root
+        l=self.lowestCommonAncestor( root.left, p, q)
+        r=self.lowestCommonAncestor( root.right, p, q)
+        if l!=None and r!=None:
+            return root
+        elif l!=None and r==None:
+            return l
+        elif r!=None and l==None:
+            return r
+        else:
+            return None 
+         

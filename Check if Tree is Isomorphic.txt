@@ -1,0 +1,23 @@
+Check if Tree is Isomorphic
+
+Link:https://practice.geeksforgeeks.org/problems/check-if-tree-is-isomorphic/1
+
+Solution:
+def solve(root1,root2):
+    if root1==None and root2==None:
+        return True
+    if root1==None or root2==None:
+        return False
+    if root1.data!=root2.data:
+        return False
+    le=solve(root1.left,root2.right) and solve(root1.right,root2.left) 
+    re=solve(root1.left,root2.left) and solve(root1.right,root2.right)
+    return le or re
+    
+    
+    
+class Solution:
+    # Return True if the given trees are isomotphic. Else return False.
+    def isIsomorphic(self, root1, root2): 
+        #code here.
+        return solve(root1,root2)
