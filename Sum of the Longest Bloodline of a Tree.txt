@@ -1,0 +1,27 @@
+Sum of the Longest Bloodline of a Tree
+
+Link:https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1
+
+Solution:
+class Solution:
+    sum_val=0
+    def get_sum(self,root):
+        if not root: 
+            return 0
+        ls=self.get_sum(root.left)
+        rs=self.get_sum(root.right)
+        
+        if root.left!=None or root.right!=None:
+            if ls==rs:
+                root.data=max(root.left.data,root.right.data)+root.data
+            elif ls>rs:
+                root.data=root.left.data+root.data
+            else:
+                root.data=root.right.data+root.data
+        
+        return max(ls,rs)+1
+        
+    def sumOfLongRootToLeafPath(self,root):
+        self.get_sum(root)
+        return root.data
+        #code here

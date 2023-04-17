@@ -1,0 +1,35 @@
+Min distance between two given nodes of a Binary Tree
+Link:https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1
+
+
+Solution:
+class Solution:
+    
+    d=0
+    def lca(self,root,n1,n2):
+        if root==None or root.data==n1 or root.data==n2:
+            return root
+        ln=self.lca(root.left,n1,n2)
+        rn=self.lca(root.right,n1,n2)
+        
+        if rn==None:
+            return ln
+        if ln==None:
+            return rn
+        return root
+        
+    def find_dis(self,root,n,level):
+        if not root:
+            return 0
+        if root.data==n:
+            self.d=self.d+level
+            return level
+        self.find_dis(root.left,n,level+1)
+        self.find_dis(root.right,n,level+1)
+        
+    def findDist(self,root,a,b):
+        lca_root=self.lca(root,a,b)
+        self.find_dis(lca_root,a,0)
+        self.find_dis(lca_root,b,0)
+        
+        return self.d
