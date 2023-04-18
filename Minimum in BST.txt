@@ -1,0 +1,19 @@
+Minimum element in BST
+lINK:https://practice.geeksforgeeks.org/problems/minimum-element-in-bst/1
+
+Solution:
+def solve(root,ans):
+    if root==None:
+        return
+    solve(root.left,ans)
+    ans.append(root.data)
+    solve(root.right,ans)
+def minValue(root):
+    ##Your code here
+    ans=[]
+    solve(root,ans)
+    if len(ans)==0:
+        return -1
+    mi=ans[0]
+    
+    return mi

@@ -1,0 +1,27 @@
+Check for BST
+Link:https:https://practice.geeksforgeeks.org/problems/check-for-bst/1
+
+Solution:
+#User function Template for python3
+def solve(root,ans):
+        if root==None:
+            return 
+        solve(root.left,ans)
+        ans.append(root.data)
+        solve(root.right,ans)
+
+class Solution:
+    
+    #Function to check whether a Binary Tree is BST or not.
+ 
+    def isBST(self, root):
+        #code here
+        ans=[]
+        solve(root,ans)
+        for i in range(1,len(ans)):
+            if ans[i-1]>=ans[i]:
+                
+                return 0;
+        
+        return 1
+

@@ -1,0 +1,30 @@
+Largest sub-tree sum
+
+Link:https://www.codingninjas.com/codestudio/problems/largest-sub-tree-sum_920400?leftPanelTab=0
+
+Solution:
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+# Following is the TreeNode class structure:
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.val = data
+        self.left = None
+        self.right = None
+
+
+def solve(root, ans):
+    if root == None:
+        return 0
+    cur =( root.data + solve(root.left, ans) + solve(root.right, ans))
+    ans[0] = max(ans[0], cur)
+    return cur
+
+def largestSubtreeSum(root):
+    # Write your code here. 
+    ans = [-999999]
+    solve(root, ans)
+    return ans[0]
