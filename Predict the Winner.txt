@@ -1,0 +1,25 @@
+Predict the Winner
+Link:https://leetcode.com/problems/predict-the-winner/description/
+Solution:
+def solve(nums,i,j):
+    if i>j:
+        return 0
+    if i==j:
+        return nums[i]
+    op1=nums[i]+min(solve(nums,i+2,j),solve(nums,i+1,j-1))
+    op2=nums[j]+min(solve(nums,i+1,j-1),solve(nums,i,j-2))
+    return max(op1,op2)
+class Solution(object):
+    def PredictTheWinner(self, nums):
+        person1=solve(nums,0,len(nums)-1)
+        tot=0
+        for i in nums:
+            tot+=i
+        person2=tot-person1
+        if(person1>=person2):
+            return True
+        return False
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
