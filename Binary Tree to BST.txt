@@ -1,0 +1,25 @@
+Binary Tree to BST
+Link:https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1
+Solution:
+class Solution:
+    def solve(self,root):
+        if root==None:
+            return None
+        self.solve(root.left)
+        self.l.append(root.data)
+        self.solve(root.right)
+    def bst(self,root, i):
+        if root==None:
+            return 
+        self.bst(root.left,i)
+        root.data=self.l[i[0]]
+        i[0]+=1
+        self.bst(root.right,i)
+
+    def binaryTreeToBST(self, root):
+        self.l=[]
+        self.solve(root)
+        self.l.sort()
+        i=[0]
+        self.bst(root,i)
+        return root
